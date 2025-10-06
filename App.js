@@ -11,13 +11,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 
 
-const Stack = createNativeStackNavigator();
+
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
   return (
     <Tab.Navigator
       screenOptions={{
+        headerShown: false,
         tabBarShowLabel: false, 
         tabBarStyle: {
           position: 'absolute',

@@ -1,20 +1,89 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import Home from './components/Home';
+import Menu from './components/Menu';
+import Payment from './components/Payment';
+import Management from './components/Management';
+import * as NavigationBar from 'expo-navigation-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
 
-export default function App() {
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function MainTabs() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false, 
+        tabBarStyle: {
+          position: 'absolute',
+          bottom: 20,
+          left: 20,
+          right: 20,
+          borderWidth: 1,
+          borderColor: '#000000ff',
+          borderRadius: 16,
+          height: 50, 
+          backgroundColor: '#fff',
+          elevation: 5,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 8,
+          paddingBottom: 0,
+        },
+
+        tabBarIconStyle: {
+          height: '100%',
+          width: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" color={color} size={22} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="restaurant-outline" color={color} size={22} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Payment"
+        component={Payment}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="card-outline" color={color} size={22} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  React.useEffect(() => {
+    NavigationBar.setVisibilityAsync('hidden');
+  }, []);
+
+  return (
+    <NavigationContainer>
+      <MainTabs />
+    </NavigationContainer>
+  );
+}

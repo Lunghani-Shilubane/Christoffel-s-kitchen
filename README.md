@@ -1,7 +1,7 @@
 # Christoffel’s Kitchen
 
 ## App Design
-Christoffel, the client, is a renowned chef known for his culinary expertise, so the app has to have a user-friendly design with a style that captures users and embodies his personality.
+Christoffel, the client, is a renowned chef known for his culinary expertise, so the app has to have a user-friendly design with a style that captures the user and embodies his personality.
 
 ## Home page
 The homepage will serve as an introduction to the chef and his business. It will have a brief overview of him and the cuisine he specialises in.

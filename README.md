@@ -34,3 +34,4 @@ The page will feature a dropdown menu which has all the items displayed in the m
 The bottom of the page will contain the aforementioned three navigation buttons.
 
 ### Video link:
+https://youtu.be/cup-o-yBRD0

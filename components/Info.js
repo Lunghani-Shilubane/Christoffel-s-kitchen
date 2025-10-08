@@ -21,7 +21,7 @@ export default class Home extends Component {
               <Text style={styles.availabilityTitle}>Availability:</Text>
               <Text style={styles.availabilityText}>Monday - Friday: 9:00 AM – 8:00 PM</Text>
               <Text style={styles.availabilityText}>Saturday: 10:00 AM – 6:00 PM</Text>
-              <Text style={styles.availabilityText}>Sunday: Closed</Text>
+              <Text style={styles.availabilityText}>Sunday: Closed{'\n'}{'\n'}</Text>
               <Text style={styles.availabilityText}>Contact: 015 238 9242</Text>
             </View>
           </View>

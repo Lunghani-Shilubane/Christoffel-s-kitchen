@@ -1,0 +1,122 @@
+[
+        {
+          "id": "1",
+          "name": "Grilled Salmon",
+          "description": "Fresh salmon fillet grilled to perfection, served with lemon butter sauce.",
+          "price": "R180",
+          "type": "mains",
+          "image": "assets/images/salmon.jpg"
+        },
+        {
+          "id": "2",
+          "name": "Beef Wellington",
+          "description": "Tender beef wrapped in puff pastry with mushroom duxelles and prosciutto.",
+          "price": "R250",
+          "type": "mains",
+          "image": "assets/images/beef_wellington.jpg"
+        },
+        {
+          "id": "3",
+          "name": "Vegetarian Risotto",
+          "description": "Creamy risotto with seasonal vegetables and parmesan cheese.",
+          "price": "R130",
+          "type": "mains",
+          "image": "assets/images/risotto.jpg"
+        },
+        {
+          "id": "4",
+          "name": "Chicken Alfredo",
+          "description": "Pasta tossed in a creamy Alfredo sauce with grilled chicken and parmesan.",
+          "price": "R140",
+          "type": "mains",
+          "image": "assets/images/chicken_alfredo.jpg"
+        },
+        {
+          "id": "5",
+          "name": "Lamb Shank",
+          "description": "Slow-cooked lamb shank in a red wine and rosemary sauce, served with mashed potatoes.",
+          "price": "R220",
+          "type": "mains",
+          "image": "assets/images/lamb_shank.jpg"
+        },
+        {
+          "id": "6",
+          "name": "Caprese Salad",
+          "description": "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
+          "price": "R90",
+          "type": "salads",
+          "image": "assets/images/caprese_salad.jpg"
+        },
+        {
+          "id": "7",
+          "name": "Seafood Paella",
+          "description": "Traditional Spanish rice dish with prawns, mussels, calamari, and saffron.",
+          "price": "R200",
+          "type": "mains",
+          "image": "assets/images/seafood_paella.jpg"
+        },
+        {
+          "id": "8",
+          "name": "Chocolate Lava Cake",
+          "description": "Warm chocolate cake with a gooey molten center, served with vanilla ice cream.",
+          "price": "R80",
+          "type": "desserts",
+          "image": "assets/images/lava_cake.jpg"
+        },
+        {
+          "id": "9",
+          "name": "Bruschetta",
+          "description": "Toasted bread topped with fresh tomatoes, garlic, basil, and olive oil.",
+          "price": "R60",
+          "type": "starters",
+          "image": "assets/images/bruschetta.jpg"
+        },
+        {
+          "id": "10",
+          "name": "French Onion Soup",
+          "description": "Classic soup with caramelized onions, beef broth, and melted cheese.",
+          "price": "R75",
+          "type": "starters",
+          "image": "assets/images/french_onion_soup.jpg"
+        },
+        {
+          "id": "11",
+          "name": "Greek Salad",
+          "description": "Crisp lettuce, tomatoes, cucumber, olives, feta cheese, and oregano.",
+          "price": "R85",
+          "type": "salads",
+          "image": "assets/images/greek_salad.jpg"
+        },
+        {
+          "id": "12",
+          "name": "Tiramisu",
+          "description": "Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.",
+          "price": "R90",
+          "type": "desserts",
+          "image": "assets/images/tiramisu.jpg"
+        },
+        {
+          "id": "13",
+          "name": "Stuffed Mushrooms",
+          "description": "Mushrooms stuffed with cheese, herbs, and breadcrumbs.",
+          "price": "R70",
+          "type": "starters",
+          "image": "assets/images/stuffed_mushrooms.jpg"
+        },
+        {
+          "id": "14",
+          "name": "Duck Confit",
+          "description": "Slow-cooked duck leg served with crispy potatoes and red wine sauce.",
+          "price": "R230",
+          "type": "mains",
+          "image": "assets/images/duck_confit.jpg"
+        },
+        {
+          "id": "15",
+          "name": "Caesar Salad",
+          "description": "Romaine lettuce, parmesan, croutons, and Caesar dressing.",
+          "price": "R80",
+          "type": "salads",
+          "image": "assets/images/caesar_salad.jpg"
+        }
+      ]

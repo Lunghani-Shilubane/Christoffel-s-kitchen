@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import Home from './components/Home';
+import Info from './components/Info';
 import Menu from './components/Menu';
 import Payment from './components/Payment';
 import Management from './components/Management';
@@ -46,15 +46,7 @@ function MainTabs() {
         },
       }}
     >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={22} />
-          ),
-        }}
-      />
+      
       <Tab.Screen
         name="Menu"
         component={Menu}
@@ -65,11 +57,30 @@ function MainTabs() {
         }}
       />
       <Tab.Screen
+        name="Info"
+        component={Info}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle-outline" color={color} size={22} />
+              
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Payment"
         component={Payment}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="card-outline" color={color} size={22} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Management"
+        component={Management}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" color={color} size={22} />
           ),
         }}
       />

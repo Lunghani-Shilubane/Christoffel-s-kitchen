@@ -1,5 +1,7 @@
 import { Text, StyleSheet, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import menuData from '../storage.json';
 
 const FOOD_TYPES = [
   { label: 'All', value: 'all' },
@@ -9,134 +11,56 @@ const FOOD_TYPES = [
   { label: 'Salads', value: 'salads' },
 ];
 
+const imageMap = {
+  "assets/images/chicken_alfredo.jpg": require('../assets/images/chicken_alfredo.jpg'),
+  "assets/images/lamb_shank.jpg": require('../assets/images/lamb_shank.jpg'),
+  "assets/images/caprese_salad.jpg": require('../assets/images/caprese_salad.jpg'),
+  "assets/images/seafood_paella.jpg": require('../assets/images/seafood_paella.jpg'),
+  "assets/images/lava_cake.jpg": require('../assets/images/lava_cake.jpg'),
+  "assets/images/bruschetta.jpg": require('../assets/images/bruschetta.jpg'),
+  "assets/images/french_onion_soup.jpg": require('../assets/images/french_onion_soup.jpg'),
+  "assets/images/greek_salad.jpg": require('../assets/images/greek_salad.jpg'),
+  "assets/images/tiramisu.jpg": require('../assets/images/tiramisu.jpg'),
+  "assets/images/stuffed_mushrooms.jpg": require('../assets/images/stuffed_mushrooms.jpg'),
+  "assets/images/duck_confit.jpg": require('../assets/images/duck_confit.jpg'),
+  "assets/images/caesar_salad.jpg": require('../assets/images/caesar_salad.jpg'),
+  "assets/images/risotto.jpg": require('../assets/images/risotto.jpg'),
+  "assets/images/salmon.jpg": require('../assets/images/salmon.jpg'),
+  "assets/images/beef_wellington.jpg": require('../assets/images/beef_wellington.jpg'),
+};
+
 export default class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedType: 'all',
-      menuItems: [
-        {
-          id: 1,
-          name: 'Grilled Salmon',
-          description: 'Fresh salmon fillet grilled to perfection, served with lemon butter sauce.',
-          price: 'R180',
-          type: 'mains',
-          image: require('../assets/images/salmon.jpg'),
-        },
-        {
-          id: 2,
-          name: 'Beef Wellington',
-          description: 'Tender beef wrapped in puff pastry with mushroom duxelles and prosciutto.',
-          price: 'R250',
-          type: 'mains',
-          image: require('../assets/images/beef_wellington.jpg'),
-        },
-        {
-          id: 3,
-          name: 'Vegetarian Risotto',
-          description: 'Creamy risotto with seasonal vegetables and parmesan cheese.',
-          price: 'R120',
-          type: 'mains',
-          image: require('../assets/images/risotto.jpg'),
-        },
-        {
-          id: 4,
-          name: 'Chicken Alfredo',
-          description: 'Pasta tossed in a creamy Alfredo sauce with grilled chicken and parmesan.',
-          price: 'R140',
-          type: 'mains',
-          image: require('../assets/images/chicken_alfredo.jpg'),
-        },
-        {
-          id: 5,
-          name: 'Lamb Shank',
-          description: 'Slow-cooked lamb shank in a red wine and rosemary sauce, served with mashed potatoes.',
-          price: 'R220',
-          type: 'mains',
-          image: require('../assets/images/lamb_shank.jpg'),
-        },
-        {
-          id: 6,
-          name: 'Caprese Salad',
-          description: 'Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.',
-          price: 'R90',
-          type: 'salads',
-          image: require('../assets/images/caprese_salad.jpg'),
-        },
-        {
-          id: 7,
-          name: 'Seafood Paella',
-          description: 'Traditional Spanish rice dish with prawns, mussels, calamari, and saffron.',
-          price: 'R200',
-          type: 'mains',
-          image: require('../assets/images/seafood_paella.jpg'),
-        },
-        {
-          id: 8,
-          name: 'Chocolate Lava Cake',
-          description: 'Warm chocolate cake with a gooey molten center, served with vanilla ice cream.',
-          price: 'R80',
-          type: 'desserts',
-          image: require('../assets/images/lava_cake.jpg'),
-        },
-        {
-          id: 9,
-          name: 'Bruschetta',
-          description: 'Toasted bread topped with fresh tomatoes, garlic, basil, and olive oil.',
-          price: 'R60',
-          type: 'starters',
-          image: require('../assets/images/bruschetta.jpg'),
-        },
-        {
-          id: 10,
-          name: 'French Onion Soup',
-          description: 'Classic soup with caramelized onions, beef broth, and melted cheese.',
-          price: 'R75',
-          type: 'starters',
-          image: require('../assets/images/french_onion_soup.jpg'),
-        },
-        {
-          id: 11,
-          name: 'Greek Salad',
-          description: 'Crisp lettuce, tomatoes, cucumber, olives, feta cheese, and oregano.',
-          price: 'R85',
-          type: 'salads',
-          image: require('../assets/images/greek_salad.jpg'),
-        },
-        {
-          id: 12,
-          name: 'Tiramisu',
-          description: 'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.',
-          price: 'R90',
-          type: 'desserts',
-          image: require('../assets/images/tiramisu.jpg'),
-        },
-        {
-          id: 13,
-          name: 'Stuffed Mushrooms',
-          description: 'Mushrooms stuffed with cheese, herbs, and breadcrumbs.',
-          price: 'R70',
-          type: 'starters',
-          image: require('../assets/images/stuffed_mushrooms.jpg'),
-        },
-        {
-          id: 14,
-          name: 'Duck Confit',
-          description: 'Slow-cooked duck leg served with crispy potatoes and red wine sauce.',
-          price: 'R230',
-          type: 'mains',
-          image: require('../assets/images/duck_confit.jpg'),
-        },
-        {
-          id: 15,
-          name: 'Caesar Salad',
-          description: 'Romaine lettuce, parmesan, croutons, and Caesar dressing.',
-          price: 'R80',
-          type: 'salads',
-          image: require('../assets/images/caesar_salad.jpg'),
-        },
-      ],
+      menuItems: [],
     };
+  }
+
+  async componentDidMount() {
+    try {
+      const storedData = await AsyncStorage.getItem('menuItems');
+      let items = [];
+      if (storedData) {
+        items = JSON.parse(storedData);
+      } else {
+        items = menuData;
+      }
+      // Map images for bundled assets only
+      const itemsWithImages = items.map(item => ({
+        ...item,
+        image: item.image && imageMap[item.image] ? imageMap[item.image] : item.image,
+      }));
+      this.setState({ menuItems: itemsWithImages });
+    } catch (error) {
+      // fallback to bundled data if error
+      const itemsWithImages = menuData.map(item => ({
+        ...item,
+        image: item.image && imageMap[item.image] ? imageMap[item.image] : item.image,
+      }));
+      this.setState({ menuItems: itemsWithImages });
+    }
   }
 
   setType = (type) => {
@@ -179,10 +103,21 @@ export default class Menu extends Component {
             ))}
           </ScrollView>
         </View>
+        <Text style={styles.counter}>
+          {filteredItems.length} {filteredItems.length === 1 ? 'dish' : 'dishes'}
+        </Text>
         <ScrollView contentContainerStyle={styles.container}>
           {filteredItems.map(item => (
             <View key={item.id} style={styles.menuItem}>
-              <Image source={item.image} style={styles.image} />
+              {item.image && typeof item.image !== 'string' ? (
+                <Image source={item.image} style={styles.image} />
+              ) : item.image && typeof item.image === 'string' ? (
+                <Image source={{ uri: item.image }} style={styles.image} />
+              ) : (
+                <View style={[styles.image, { backgroundColor: '#eee', justifyContent: 'center', alignItems: 'center' }]}>
+                  <Text style={{ color: '#aaa', fontSize: 10 }}>No Image</Text>
+                </View>
+              )}
               <View style={styles.details}>
                 <Text style={styles.name}>{item.name}</Text>
                 <Text style={styles.description}>{item.description}</Text>
@@ -204,7 +139,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 32, // <-- Add this line to move filters lower
+    marginTop: 32,
   },
   filterButton: {
     paddingHorizontal: 16,
@@ -241,7 +176,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 90,
-    height: 90,
+    height: "100%",
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,
   },
@@ -263,6 +198,13 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#2e7d32',
+  },
+  counter: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
     color: '#2e7d32',
   },
 });

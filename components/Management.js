@@ -119,10 +119,10 @@ export default function Management() {
 
 
 
-    // 🔹 Select image for editing dish
+    //  Select image for editing dish
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* 🔹 List of existing menu items */}
+      {/*  List of existing menu items */}
       <Text style={styles.header}>Menu Items</Text>
       {menuItems.map(item => (
         <TouchableOpacity
@@ -236,7 +236,7 @@ export default function Management() {
                   placeholder="Price"
                   value={editingDish.price}
                   onChangeText={text => setEditingDish({ ...editingDish, price: text })}
-                  keyboardType="numeric"
+                  keyboardType="string"
                 />
                 {/* 👇 Image selector for editing */}
                 <Button style={styles.imgBtn} title="Change Image" onPress={handleSelectEditImage} />

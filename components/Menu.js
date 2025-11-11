@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, Image, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import menuData from '../storage.json';
@@ -67,6 +67,46 @@ export default class Menu extends Component {
     this.setState({ selectedType: type });
   };
 
+  // NEW: add item to cart (stored under 'cart' key). Saves serializable fields only.
+  handleAddToPayment = async (item) => {
+    try {
+      const cartJson = await AsyncStorage.getItem('cart');
+      const cart = cartJson ? JSON.parse(cartJson) : [];
+
+      // create a serializable version of the item (avoid module/require objects)
+      let imagePath = null;
+      if (typeof item.image === 'string') {
+        imagePath = item.image;
+      } else {
+        // reverse-lookup bundled image key if possible
+        const foundKey = Object.keys(imageMap).find(k => imageMap[k] === item.image);
+        imagePath = foundKey || null;
+      }
+
+      const existing = cart.find(ci => ci.id === item.id);
+      if (existing) {
+        existing.quantity = (existing.quantity || 1) + 1;
+      } else {
+        cart.push({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          image: imagePath, // string path or null
+          quantity: 1,
+        });
+      }
+      await AsyncStorage.setItem('cart', JSON.stringify(cart));
+
+      // feedback and navigate to Payment tab
+      Alert.alert('Added', `${item.name} added to payment`, [
+        { text: 'View payment', onPress: () => this.props.navigation.navigate('Payment') },
+        { text: 'Continue', style: 'cancel' },
+      ]);
+    } catch (e) {
+      console.error('Error adding to cart', e);
+    }
+  };
+
   render() {
     const { selectedType, menuItems } = this.state;
     const filteredItems =
@@ -108,22 +148,29 @@ export default class Menu extends Component {
         </Text>
         <ScrollView contentContainerStyle={styles.container}>
           {filteredItems.map(item => (
-            <View key={item.id} style={styles.menuItem}>
-              {item.image && typeof item.image !== 'string' ? (
-                <Image source={item.image} style={styles.image} />
-              ) : item.image && typeof item.image === 'string' ? (
-                <Image source={{ uri: item.image }} style={styles.image} />
-              ) : (
-                <View style={[styles.image, { backgroundColor: '#eee', justifyContent: 'center', alignItems: 'center' }]}>
-                  <Text style={{ color: '#aaa', fontSize: 10 }}>No Image</Text>
+            // Make the whole menu item clickable
+            <TouchableOpacity
+              key={item.id}
+              onPress={() => this.handleAddToPayment(item)}
+              activeOpacity={0.8}
+            >
+              <View style={styles.menuItem}>
+                {item.image && typeof item.image !== 'string' ? (
+                  <Image source={item.image} style={styles.image} />
+                ) : item.image && typeof item.image === 'string' ? (
+                  <Image source={{ uri: item.image }} style={styles.image} />
+                ) : (
+                  <View style={[styles.image, { backgroundColor: '#eee', justifyContent: 'center', alignItems: 'center' }]}>
+                    <Text style={{ color: '#aaa', fontSize: 10 }}>No Image</Text>
+                  </View>
+                )}
+                <View style={styles.details}>
+                  <Text style={styles.name}>{item.name}</Text>
+                  <Text style={styles.description}>{item.description}</Text>
+                  <Text style={styles.price}>{item.price}</Text>
                 </View>
-              )}
-              <View style={styles.details}>
-                <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.description}>{item.description}</Text>
-                <Text style={styles.price}>{item.price}</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>

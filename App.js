@@ -56,16 +56,7 @@ function MainTabs() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Info"
-        component={Info}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="information-circle-outline" color={color} size={22} />
-              
-          ),
-        }}
-      />
+     
       <Tab.Screen
         name="Payment"
         component={Payment}
@@ -75,12 +66,24 @@ function MainTabs() {
           ),
         }}
       />
+
       <Tab.Screen
         name="Management"
         component={Management}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings-outline" color={color} size={22} />
+          ),
+        }}
+      />
+
+       <Tab.Screen
+        name="Info"
+        component={Info}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="information-circle-outline" color={color} size={22} />
+              
           ),
         }}
       />

@@ -39,7 +39,7 @@ The bottom of the page will contain the aforementioned three navigation buttons.
 * Lastly is the management page, which lets Christoffel manipulate the data and add more dishes to the menu.
 
 ### Conclusion
-In conclusion, I believe that this is the best way forward for Christoffel's business, as it will reach many people and boost sales considerably. The only thing that's left now is marketing, I'm sure that will be a breeze with such attractive food.
+In conclusion, I believe that this is the best way forward for Christoffel's business, as it will reach many people and boost sales considerably. The only thing that's left now is marketing. I'm sure that will be a breeze with such attractive food.
 
 ### Change Log
 * Added the payment page and made it functional
@@ -57,4 +57,4 @@ In conclusion, I believe that this is the best way forward for Christoffel's bus
 
 
 ### Video link:
-https://youtu.be/cup-o-yBRD0
+https://youtu.be/DGa36rUcM9s

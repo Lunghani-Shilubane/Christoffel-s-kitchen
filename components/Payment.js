@@ -122,7 +122,7 @@ export default class Payment extends Component {
     const date = new Date();
     const orderId = 'ORD' + date.getTime();
 
-    const TAX_RATE = 0.15; // 15% example
+    const TAX_RATE = 0.15; // 15% tax
     const tax = total * TAX_RATE;
     const grandTotal = total + tax;
 
@@ -152,7 +152,7 @@ export default class Payment extends Component {
     }
     lines.push('');
     lines.push('Thank you for your order!');
-    lines.push('Address: 123 Example St, City');
+    lines.push('Address: 123 Cnr And Left St, City');
     lines.push('Phone: 012 345 6789');
 
     // join with newlines
@@ -331,15 +331,23 @@ export default class Payment extends Component {
           onRequestClose={this.closeReceiptModal}
         >
           <View style={styles.modalOverlay}>
-            <View style={[styles.modalContent, { padding: 16 }]}>
-              <ScrollView style={{ maxHeight: '80%' }}>
-                <Text style={{ fontFamily: 'monospace', color:'#111' }}>
-                  {this.state.receiptText}
-                </Text>
-              </ScrollView>
-              <View style={{ marginTop: 12, flexDirection:'row', justifyContent:'space-between' }}>
-                <Button title="Close" onPress={this.closeReceiptModal} />
-                <Button title="Share" onPress={() => {/* you can call Share API here */}} />
+            <View style={[styles.modalContent, { padding: 0, overflow: 'hidden', position: 'relative' }]}>
+              {/* Background Image */}
+              <Image
+                source={require('../assets/images/reciept-paper.jpeg')}
+                style={styles.receiptBackground}
+              />
+              
+              {/* Content on top of background */}
+              <View style={{ padding: 16, position: 'relative', zIndex: 1 }}>
+                <ScrollView style={{ maxHeight: '80%' }}>
+                  <Text style={{ fontFamily: 'monospace', color:'#111', fontSize: 12 }}>
+                    {this.state.receiptText}
+                  </Text>
+                </ScrollView>
+                <View style={{ marginTop: 12, flexDirection:'row', justifyContent:'space-between' }}>
+                  <Button title="Close" onPress={this.closeReceiptModal} />
+                </View>
               </View>
             </View>
           </View>
@@ -363,6 +371,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#f7f7f7',
     padding:12,
     borderRadius:8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 2,
   },
   img: {
     width:64,
@@ -435,5 +448,11 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 12,
     fontSize: 14,
+  },
+  receiptBackground: {
+    width: '100%',
+    height: '110%',
+    resizeMode: 'cover',
+    position: 'absolute',
   },
 });

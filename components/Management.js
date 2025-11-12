@@ -67,7 +67,7 @@ export default function Management() {
   }, [menuItems]);
 
 
-   // 🔹 Add a new dish
+   //  Add a new dish
   const handleAddDish = () => {
     if (!newDish.name || !newDish.price) {
       Alert.alert('Please enter at least a name and price for the dish.');
@@ -243,7 +243,7 @@ export default function Management() {
                 {editingDish.image ? (
                   <Image source={{ uri: editingDish.image }} style={styles.previewImage} />
                 ) : (
-                  <Text style={{ color: '#a30404ff', marginVertical: 6 }}>No image selected</Text>
+                  <Text style={{ color: '#aaa', marginVertical: 6 }}>No image selected</Text>
                 )}
 
 
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   typeButtonActive: {
-    backgroundColor: '#2e7d32',
+    backgroundColor: '#000000ff',
   },
   typeButtonText: {
     color: '#333',
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 14,
-    color: '#2e7d32',
+    color: '#000000ff',
     fontWeight: 'bold',
   },
   modalOverlay: {
@@ -383,4 +383,5 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
+  
 });

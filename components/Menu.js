@@ -255,14 +255,14 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#580909ff',
+    color: '#000000ff',
   },
   counter: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 12,
     textAlign: 'center',
-    color: '#580909ff',
+    color: '#000000ff',
   },
 });
 

@@ -38,6 +38,9 @@ The bottom of the page will contain the aforementioned three navigation buttons.
 * Next is the payment page, which also works as a cart page. All selected items will be here. The user will be able to see the total amount of the dishes and be able to make online payments.
 * Lastly is the management page, which lets Christoffel manipulate the data and add more dishes to the menu.
 
+### Conclusion
+In conclusion, I believe that this is the best way forward for Christoffel's business, as it will reach many people and boost sales considerably. The only thing that's left now is marketing, I'm sure that will be a breeze with such attractive food.
+
 ### Change Log
 * Added the payment page and made it functional
 * Added the total price of selected items to the cart/payment page
@@ -49,6 +52,7 @@ The bottom of the page will contain the aforementioned three navigation buttons.
 * Removed the unnecessary information page
 * Updated overall styling
 * Updated navbar links
+* Updated readme file
 * Updated demonstration video
 
 

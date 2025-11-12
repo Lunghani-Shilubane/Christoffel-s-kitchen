@@ -38,6 +38,13 @@ export default class Menu extends Component {
     };
   }
 
+  // helper to parse price strings like "R180" or "180.50"
+  parsePrice = (price) => {
+    if (price === undefined || price === null) return null;
+    const n = Number(String(price).replace(/[^0-9.-]+/g, ''));
+    return Number.isFinite(n) ? n : null;
+  }
+
   async componentDidMount() {
     try {
       const storedData = await AsyncStorage.getItem('menuItems');
@@ -114,6 +121,13 @@ export default class Menu extends Component {
         ? menuItems
         : menuItems.filter(item => item.type === selectedType);
 
+    // compute average of items with valid numeric prices
+    const priceValues = filteredItems
+      .map(i => this.parsePrice(i.price))
+      .filter(v => v !== null);
+    const avg = priceValues.length ? priceValues.reduce((s, v) => s + v, 0) / priceValues.length : null;
+    const avgText = avg !== null ? `Avg: R${avg.toFixed(2)}` : 'Avg: —';
+
     return (
       <View style={{ flex: 1, backgroundColor: '#fff', justifyContent: 'center' }}>
         <View style={{ alignItems: 'center' }}>
@@ -146,6 +160,7 @@ export default class Menu extends Component {
         <Text style={styles.counter}>
           {filteredItems.length} {filteredItems.length === 1 ? 'dish' : 'dishes'}
         </Text>
+        <Text style={styles.avg}>{avgText}</Text>
         <ScrollView contentContainerStyle={styles.container}>
           {filteredItems.map(item => (
             // Make the whole menu item clickable
@@ -258,6 +273,13 @@ const styles = StyleSheet.create({
     color: '#000000ff',
   },
   counter: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
+    color: '#000000ff',
+  },
+  avg: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 12,

@@ -54,7 +54,7 @@ function MainTabs() {
         component={Menu}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="restaurant-outline" color={color} size={22} />
+            <Ionicons name="restaurant-outline" color={black} size={22} />
           ),
         }}
       />

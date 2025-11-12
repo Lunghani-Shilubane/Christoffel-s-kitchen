@@ -105,7 +105,7 @@ export default class Menu extends Component {
       await AsyncStorage.setItem('cart', JSON.stringify(cart));
 
       // feedback and navigate to Payment tab
-      Alert.alert('Added', `${item.name} added to payment`, [
+      Alert.alert('Added', `${item.name} added to cart`, [
         { text: 'View payment', onPress: () => this.props.navigation.navigate('Payment') },
         { text: 'Continue', style: 'cancel' },
       ]);

@@ -38,5 +38,19 @@ The bottom of the page will contain the aforementioned three navigation buttons.
 * Next is the payment page, which also works as a cart page. All selected items will be here. The user will be able to see the total amount of the dishes and be able to make online payments.
 * Lastly is the management page, which lets Christoffel manipulate the data and add more dishes to the menu.
 
+### Change Log
+* Added the payment page and made it functional
+* Added the total price of selected items to the cart/payment page
+* Added a payment modal to the payment page
+* Added a receipt modal to the payment page
+* Updated styling of receipt modal
+* Updated the navbar styling
+* Added the average price of the dishes according to the selected filter
+* Removed the unnecessary information page
+* Updated overall styling
+* Updated navbar links
+* Updated demonstration video
+
+
 ### Video link:
 https://youtu.be/cup-o-yBRD0

@@ -29,9 +29,14 @@ The payment page will use the same card layout as the menu, only displaying the 
 The bottom of the page will contain the three navigation buttons
 
 ### The Management page
-This page is exclusive to the chef. This is where he will be given the opportunity to change any information he pleases.
+This page is exclusive to the chef. This is where he will be allowed to change any information he pleases.
 The page will feature a dropdown menu which has all the items displayed in the menu. He will be able to pick an item and change the name, description, image and price of the item. The page is only available when he signs in to his account.
 The bottom of the page will contain the aforementioned three navigation buttons.
+
+### How it works
+* The first page is the menu page, where a user can take a look at the dishes on offer and choose what they want by clicking on one or all.
+* Next is the payment page, which also works as a cart page. All selected items will be here. The user will be able to see the total amount of the dishes and be able to make online payments.
+* Lastly is the management page, which lets Christoffel manipulate the data and add more dishes to the menu.
 
 ### Video link:
 https://youtu.be/cup-o-yBRD0

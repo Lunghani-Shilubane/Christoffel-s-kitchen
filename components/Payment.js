@@ -213,7 +213,7 @@ export default class Payment extends Component {
               <TouchableOpacity style={styles.button} onPress={this.clearCart}>
                 <Text style={{color:'#fff'}}>Clear</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={[styles.button, {backgroundColor:'#2e7d32'}]} onPress={this.openPaymentModal}>
+              <TouchableOpacity style={[styles.button, {backgroundColor:'#000000ff'}]} onPress={this.openPaymentModal}>
                 <Text style={{color:'#fff'}}>Checkout</Text>
               </TouchableOpacity>
             </View>
@@ -390,18 +390,17 @@ const styles = StyleSheet.create({
     padding:16,
     borderTopWidth:1,
      borderStyle: 'solid',
-    
     borderColor: '#00000017',
     backgroundColor:'#fff',
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    paddingBottom:100,
+    paddingBottom:120,
   },
   button: {
     paddingHorizontal:12,
     paddingVertical:8,
-    backgroundColor:'#d32f2f',
+    backgroundColor:'#000000ff',
     borderRadius:8,
   },
   modalOverlay: {

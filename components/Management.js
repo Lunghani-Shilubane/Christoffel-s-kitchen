@@ -243,7 +243,7 @@ export default function Management() {
                 {editingDish.image ? (
                   <Image source={{ uri: editingDish.image }} style={styles.previewImage} />
                 ) : (
-                  <Text style={{ color: '#aaa', marginVertical: 6 }}>No image selected</Text>
+                  <Text style={{ color: '#a30404ff', marginVertical: 6 }}>No image selected</Text>
                 )}
 
 
@@ -270,9 +270,9 @@ export default function Management() {
                   {/* Save/Delete/Cancel buttons */}
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                  <Button title="Save" onPress={handleEditDish} />
-                  <Button title="Delete" color="#c62828" onPress={() => handleRemoveDish(editingDish.id)} />
-                  <Button title="Cancel" color="#888" onPress={() => setModalVisible(false)} />
+                  <Button title="Save" color="#000000ff" onPress={handleEditDish} />
+                  <Button title="Delete" color="#000000ff" onPress={() => handleRemoveDish(editingDish.id)} />
+                  <Button title="Cancel" color="#000000ff" onPress={() => setModalVisible(false)} />
                 </View>
               </>
             )}
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   dishContainer: {
     backgroundColor: '#f7f7f7',
     borderRadius: 12,
-    marginBottom: 18,
+    marginBottom: 40,
     padding: 12,
     elevation: 2,
      borderStyle: 'solid',

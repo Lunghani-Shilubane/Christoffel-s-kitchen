@@ -285,6 +285,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     textAlign: 'center',
     color: '#000000ff',
+    letterSpacing: 0.5,
   },
 });
 

@@ -20,6 +20,8 @@ function MainTabs() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false, 
+        tabBarActiveTintColor: '#000000ff',    // active icon color
+       tabBarInactiveTintColor: '#8a8a8aff',
         tabBarStyle: {
           position: 'absolute',
           bottom: 50,
@@ -54,7 +56,7 @@ function MainTabs() {
         component={Menu}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="restaurant-outline" color={black} size={22} />
+            <Ionicons name="restaurant-outline" color={color} size={22} />
           ),
         }}
       />

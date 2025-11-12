@@ -194,12 +194,18 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#f0f0f0',
     marginRight: 10,
+    borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: '#00000017',
   },
   filterButtonActive: {
-    backgroundColor: '#2e7d32',
+    backgroundColor: '#000000ff',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    
   },
   filterButtonText: {
-    color: '#333',
+    color: '#000000ff',
     fontWeight: 'bold',
   },
   filterButtonTextActive: {
@@ -211,11 +217,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexGrow: 1,
     justifyContent: 'center',
+    paddingBottom: 120,
   },
   menuItem: {
     flexDirection: 'row',
     backgroundColor: '#f7f7f7',
     borderRadius: 12,
+    borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: '#00000017',
     marginBottom: 18,
     overflow: 'hidden',
     elevation: 2,
@@ -245,14 +255,14 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#2e7d32',
+    color: '#580909ff',
   },
   counter: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 12,
     textAlign: 'center',
-    color: '#2e7d32',
+    color: '#580909ff',
   },
 });
 

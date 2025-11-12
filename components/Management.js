@@ -301,6 +301,9 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 10,
     elevation: 1,
+     borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: '#00000017',
   },
   dishContainer: {
     backgroundColor: '#f7f7f7',
@@ -308,6 +311,9 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     padding: 12,
     elevation: 2,
+     borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: '#00000017',
   },
   input: {
     borderWidth: 1,

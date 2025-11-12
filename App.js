@@ -22,7 +22,7 @@ function MainTabs() {
         tabBarShowLabel: false, 
         tabBarStyle: {
           position: 'absolute',
-          bottom: 20,
+          bottom: 50,
           left: 20,
           right: 20,
           borderWidth: 1,

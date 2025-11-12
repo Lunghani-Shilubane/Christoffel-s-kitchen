@@ -376,6 +376,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 4,
     elevation: 2,
+     borderStyle: 'solid',
+    borderWidth: 0.5,
+    borderColor: '#00000017',
   },
   img: {
     width:64,
@@ -386,7 +389,9 @@ const styles = StyleSheet.create({
   footer: {
     padding:16,
     borderTopWidth:1,
-    borderColor:'#eee',
+     borderStyle: 'solid',
+    
+    borderColor: '#00000017',
     backgroundColor:'#fff',
     flexDirection:'row',
     justifyContent:'space-between',
